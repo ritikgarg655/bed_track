@@ -9,3 +9,10 @@ Front Page:
 ![Front Page](https://github.com/ritikgarg655/bed_track/blob/master/UI_main_page.png)
 Filters available:
 ![Filters](https://github.com/ritikgarg655/bed_track/blob/master/UI_filter.png)
+## How to run?
+    First install PHP/MySqlDevelopment Enviroment: https://www.wa4e.com/install
+    Run server
+    Open phpmyadmin and make mysql tables sql mentioned in sql.txt file.
+    Clone repository in htdocs folder.
+    Visit: http://localhost/hospital_bed/main.php
+ If found any mistake, feel free to file issue.
