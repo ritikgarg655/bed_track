@@ -1,0 +1,6 @@
+# table 1:
+
+# Table 2:
+create table Hospital_option_a(`ip_add` varchar(255) not null,`dbname` varchar(255) not null,`tablename` varchar(255) not null,`fiel_name_tot_bed` varchar(255) not null,`fiel_name_unoc_bed` varchar(255) not null,`hospital_ref` int not null,FOREIGN KEY (`hospital_ref`) REFERENCES Hospital_details(hospital_id));
+# Table 3:
+CREATE TABLE `bed_trcker`.`option_b` (`tot_bed` INT NOT NULL ,`unocc_bed` INT NOT NULL,`hosp_id` int not null,FOREIGN KEY (hosp_id) REFERENCES Hospital_details(hospital_id)) ENGINE = InnoDB;
