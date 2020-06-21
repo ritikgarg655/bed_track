@@ -21,11 +21,13 @@
 			$count = 1;
 		// vardump($count);
 		if($count>0){
-			$sql = "UPDATE bed_trcker.Hospital_option_a SET `ip_add`=:ip,`dbname`=:bd,`tablename`=:tb,`fiel_name_tot_bed`=:tot_bed,`fiel_name_unoc_bed`=:unoc_bed WHERE `hospital_ref`=:hosp_ref";
+			$sql = "UPDATE bed_trcker.Hospital_option_a SET `ip_add`=:ip,`dbname`=:bd,`tablename`=:tb,`fiel_name_tot_bed`=:tot_bed,`username`=:usr,`pass`=:ps,`fiel_name_unoc_bed`=:unoc_bed WHERE `hospital_ref`=:hosp_ref";
 			$stmt = $pdo->prepare($sql);
 			$stmt->execute(array(
 				'ip'=>$_POST['ip'],
 				'bd'=>$_POST['dbname'] ,
+				'usr'=>$_POST['usn'],
+				'ps'=>$_POST['pas'],
 				'tb'=> $_POST['tbname'] ,
 				'tot_bed'=> $_POST['f_tot_bed'] ,
 				'unoc_bed'=> $_POST['f_unoc_bed'] ,
@@ -34,12 +36,14 @@
 			header('Location: hospital_show_ip.php');
 			return;
 		}
-		$sql = "INSERT INTO bed_trcker.Hospital_option_a (`ip_add`,`dbname`,`tablename`,`fiel_name_tot_bed`,`fiel_name_unoc_bed`,`hospital_ref` ) VALUES (:ip,:bd,:tb,:tot_bed,:unoc_bed,:hosp_ref);";
+		$sql = "INSERT INTO bed_trcker.Hospital_option_a (`ip_add`,`dbname`,`tablename`, `username`, `pass`,`fiel_name_tot_bed`,`fiel_name_unoc_bed`,`hospital_ref` ) VALUES (:ip,:bd,:tb,:usr,:ps,:tot_bed,:unoc_bed,:hosp_ref);";
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute(array(
 			'ip'=>$_POST['ip'],
 			'bd'=>$_POST['dbname'] ,
 			'tb'=> $_POST['tbname'] ,
+			'usr'=>$_POST['usn'],
+			'ps'=>$_POST['pas'],
 			'tot_bed'=> $_POST['f_tot_bed'] ,
 			'unoc_bed'=> $_POST['f_unoc_bed'] ,
 			'hosp_ref'=> $_SESSION['id']
@@ -61,6 +65,10 @@
 		<input type="text" name="dbname" required><br>
 		<label>Table name:</label>
 		<input type="text" name="tbname" required><br>
+		<label>Username of databse</label>
+		<input type="text" name="usn" required=""><br>
+		<label>Pass</label>
+		<input type="password" name="pas" required=""><br>
 		<label>Field name of total bed data:</label>
 		<input type="text" name="f_tot_bed" required><br>
 		<label>Field name of unoccupied name:</label>
