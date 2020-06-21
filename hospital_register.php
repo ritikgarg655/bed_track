@@ -38,15 +38,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+	 <style type="text/css">
+		#map{ width:300px; height: 300px; }
+		</style>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh5C6eO57f7niZB8Pjmcgwazhg9F-eKfM&callback=initMap">
+    </script>
 	<title></title>
 </head>
 <body>
 	<form method="post">
 		<label>Hospital name:</label>
 		<input type="text" name="hospital_name" required><br>
-		<label>Hospital location:</label>
-		<input type="text" name="hospital_long" required><br>
-		<input type="text" name="hospita_lang" required><br>
+		<label>Hospital location select from map using marker:</label>
+		<div id="map"></div>
+		<input type="text" name="hospital_long" required id="lat" readonly="yes"><br>
+		<input type="text" name="hospita_lang" required id="lng" readonly="yes"><br>
 		<label>user_name:</label>
 		<input type="text" name="user_name" required><br>
 		<label>Password</label>
@@ -58,5 +64,6 @@
 		<label>Update manually.</label><br>
 		<input type="submit" name="submit" value="submit">
 	</form>
+	<script type="text/javascript" src="map_js.js"></script>
 </body>
 </html>
