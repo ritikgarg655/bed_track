@@ -22,3 +22,13 @@ CREATE TABLE user_details (
     pass varchar(255) not null,
 	PRIMARY KEY(user_id)
 );
+
+Table 5:
+CREATE TABLE rating (
+	user_id int not null ,
+    hospital_id int not null,
+    rating int not null,
+    CONSTRAINT FOREIGN key (user_id) REFERENCES user_details(user_id) on DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN key (hospital_id) REFERENCES hospital_detail(hospital_id) on DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (user_id,hospital_id)
+);
