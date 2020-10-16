@@ -15,4 +15,4 @@ Filters available:
     Open phpmyadmin and make mysql tables sql mentioned in sql.txt file.
     Clone repository in htdocs folder.
     Visit: http://localhost/hospital_bed/main.php
- If found any mistake, feel free to file issue.
+ If found any bug, feel free to open issue.
