@@ -5,8 +5,8 @@ Created a customised web application using Maps to track the nearby hospitals ar
 ## Flow chart
 ![Flow Chart](https://github.com/ritikgarg655/bed_track/blob/master/Screenshot%20from%202020-06-21%2015-54-16.png)
 ## Expected UI
-Front Page:
 ![Front Page](Screenshot_20201031_132001.jpg) 
+Contributed by Haresh Prajapati 
 ## How to run?
     First install PHP/MySqlDevelopment Enviroment: https://www.wa4e.com/install
     Run server
