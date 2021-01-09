@@ -3,7 +3,7 @@
 	$dom = new DOMDocument("1.0");
 	$node = $dom->createElement("markers");
 	$parnode = $dom->appendChild($node);
-	$sql = "SELECT * FROM bed_trcker.Hospital_details where 1";
+	$sql = "SELECT * FROM bed_trcker.hospital_details where 1";
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute();
 

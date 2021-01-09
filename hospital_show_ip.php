@@ -3,7 +3,7 @@
 	require_once 'pdo.php';
 	echo $_SESSION["id"];
 	if(isset($_SESSION['id'])){
-		$sql  = 'SELECT * FROM bed_trcker.Hospital_option_a where hospital_ref = :hid';
+		$sql  = 'SELECT * FROM bed_trcker.hospital_option_a where hospital_ref = :hid';
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute(array('hid'=>$_SESSION['id']));
 		$row = $stmt->fetch();
@@ -12,7 +12,7 @@
 		echo "IP Address: ".$row['ip_add']."<br>";
 		echo "Total bed field name: ".$row['fiel_name_tot_bed']."<br>";
 		echo "Unoccupied bed field name: ".$row['fiel_name_unoc_bed']."<br>";
-		$sql = 'select option_selected from bed_trcker.Hospital_details where hospital_id = :hid';
+		$sql = 'select option_selected from bed_trcker.hospital_details where hospital_id = :hid';
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute(array('hid'=>$_SESSION['id']));
 		$row = $stmt->fetch();
@@ -23,11 +23,14 @@
 		}
 	}
 	else{
-		header('Location: hospital_login.php');
+		header('Location: main.php');
 		die('Access denied.');
+		exit;
 	}
 	if(isset($_POST['logout'])){
 		unset($_SESSION['id']);
+		header('Location: main.php');
+		return;
 	}
 ?>
 <!DOCTYPE html>

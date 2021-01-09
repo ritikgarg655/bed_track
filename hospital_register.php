@@ -4,7 +4,7 @@
 	require 'pdo.php';
 	if(isset($_POST['submit'])){
 		// session_start();
-		$sql = "INSERT INTO bed_trcker.Hospital_details (`hospital_name`, 	`hospital_long`, 	`hospital_lat`, 	`username`, 	`pass`, 	`option_selected` ) VALUES (:name,:hos_long,:hos_lang,:usname,:pass,:opt);";
+		$sql = "INSERT INTO bed_trcker.hospital_details (`hospital_name`, 	`hospital_long`, 	`hospital_lat`, 	`username`, 	`pass`, 	`option_selected` ) VALUES (:name,:hos_long,:hos_lang,:usname,:pass,:opt);";
 		// $sql2 = "SELECT * FROM "
 		// echo $sql;
 		$salt = "unkown";
@@ -20,7 +20,7 @@
 		));
 		// echo "ritik";
 		// $us = $_POST['user_name'];
-		$sql1 = 'SELECT `hospital_id` from bed_trcker.Hospital_details where username = :usn;';
+		$sql1 = 'SELECT `hospital_id` from bed_trcker.hospital_details where username = :usn;';
 		$stmt = $pdo->prepare($sql1);
 		$stmt->execute(array('usn'=>$_POST['user_name']));
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);

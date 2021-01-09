@@ -2,7 +2,7 @@
 	require_once 'pdo.php';
 	session_start();
 	if(isset($_POST['submit'])){
-		$sql = "SELECT hospital_id,pass,option_selected FROM bed_trcker.Hospital_details WHERE username=:usr";	
+		$sql = "SELECT hospital_id,pass,option_selected FROM bed_trcker.hospital_details WHERE username=:usr";	
 		$stmt = $pdo->prepare($sql);
 		$salt = "unkown";
 		$hashed_pass = hash('md5',$salt.$_POST['password']);

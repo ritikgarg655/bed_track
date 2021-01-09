@@ -14,11 +14,12 @@
 		}
 		// else{
 		// 	$count = 1;
-		// }
+		// } 
 	}
 	else{
 		header('Location: hospital_login.php');
 		die('Access denied.');
+		return;
 	}
 	if(isset($_POST['update'])){
 		$sql = "SELECT * FROM bed_trcker.option_b WHERE hosp_id = :hid";
@@ -32,6 +33,11 @@
 			$count = 1;
 		}
 		echo $count;
+		if($_POST['tot_bed']<$_POST['occ_bed'] or $_POST['tot_bed']<0 or $_POST['occ_bed']>0){
+			$_SESSION['error'] = "Unmatching values.";
+			header("Location: option_b_show_update.php");
+			return;			
+		}
 		if($count > 0){
 			$sql = "UPDATE bed_trcker.option_b SET `tot_bed`=:tot,`unocc_bed`=:un WHERE `hosp_id`=:hid;";
 			$stmt = $pdo->prepare($sql);
@@ -59,6 +65,8 @@
 	}
 	if(isset($_POST['logout'])){
 		unset($_SESSION['id']);
+		header('Location: main.php');
+		return;
 	}
 ?>
 <!DOCTYPE html>
@@ -67,6 +75,12 @@
 	<title></title>
 </head>
 <body>
+	<?php
+		if(isset($_SESSION['error'])){
+			echo "<p style = 'color : red;'>".$_SESSION['error']."</p>";
+			unset($_SESSION['error']);
+		}
+	?>
 	<form method="post">
 		<label>Total bed:</label>
 		<input type="number" name="tot_bed" required><br>
