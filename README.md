@@ -26,9 +26,6 @@ UI contributed by Haresh Prajapati.
     Clone repository in htdocs folder.
     Visit: http://localhost/hospital_bed/main.php
     
-## College name -  Nirma University
-Members - Ritik Garg, Sanjay Parmar, Sarthak Farkya
-
 If found any bug or any feedback, feel free to contact via email at ritikgarg0035@gmail.com.
 
 
